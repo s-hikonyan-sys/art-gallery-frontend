@@ -1,0 +1,38 @@
+{
+  "name": "art-gallery-frontend",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview",
+    "test": "vitest",
+    "test:ui": "vitest --ui",
+    "test:run": "vitest run",
+    "test:coverage": "vitest run --coverage",
+    "lint": "eslint . --ext .vue,.js,.jsx,.cjs,.mjs --fix --ignore-path .gitignore",
+    "lint:check": "eslint . --ext .vue,.js,.jsx,.cjs,.mjs --ignore-path .gitignore",
+    "format": "prettier --write \"src/**/*.{js,jsx,vue,json,css,scss,md}\"",
+    "format:check": "prettier --check \"src/**/*.{js,jsx,vue,json,css,scss,md}\"",
+    "type-check": "vue-tsc --noEmit",
+    "lint:fix": "npm run lint && npm run format"
+  },
+  "dependencies": {
+    "vue": "^3.3.4",
+    "vue-router": "^4.2.4",
+    "axios": "^1.5.0"
+  },
+  "devDependencies": {
+    "@vitejs/plugin-vue": "^4.3.4",
+    "vite": "^4.4.9",
+    "vitest": "^1.0.0",
+    "@vitest/ui": "^1.0.0",
+    "@vue/test-utils": "^2.4.3",
+    "happy-dom": "^12.0.0",
+    "@vitest/coverage-v8": "^1.0.0",
+    "eslint": "^8.50.0",
+    "eslint-plugin-vue": "^9.17.0",
+    "@vue/eslint-config-prettier": "^8.0.0",
+    "prettier": "^3.0.3"
+  }
+}

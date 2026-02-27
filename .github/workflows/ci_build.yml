@@ -1,0 +1,51 @@
+name: CI Build
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '18'
+          cache: 'npm'
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Lint check
+        run: npm run lint:check
+
+      - name: Run tests
+        run: npm run test:run
+
+      - name: Build
+        run: npm run build
+
+      - name: Upload dist artifact
+        id: upload-artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: frontend-dist-${{ github.sha }}
+          path: dist/
+          retention-days: 7
+
+      - name: Trigger release-tools deploy
+        run: |
+          gh api \
+            --method POST \
+            repos/s-hikonyan-sys/art-gallery-release-tools/actions/workflows/deploy_frontend.yml/dispatches \
+            -f ref=main \
+            -F inputs[frontend_artifact_id]="${{ steps.upload-artifact.outputs.artifact-id }}" \
+            -F inputs[frontend_ref]="${{ github.sha }}"
+        env:
+          GH_TOKEN: ${{ secrets.GH_TOKEN_FOR_ART_GALLERY_RELEASE_TOOLS }}
