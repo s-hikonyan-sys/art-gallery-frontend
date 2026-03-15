@@ -1,14 +1,10 @@
 /* eslint-env node */
 module.exports = {
   root: true,
-  'extends': [
-    'plugin:vue/vue3-essential',
-    'eslint:recommended',
-    '@vue/eslint-config-prettier'
-  ],
+  extends: ['plugin:vue/vue3-essential', 'eslint:recommended', '@vue/eslint-config-prettier'],
   parserOptions: {
     ecmaVersion: 'latest',
-    sourceType: 'module'
+    sourceType: 'module',
   },
   rules: {
     'no-console': process.env.NODE_ENV === 'production' ? 'warn' : 'off',
@@ -17,10 +13,9 @@ module.exports = {
     'vue/no-unused-vars': 'warn',
     'no-unused-vars': 'warn',
     'prefer-const': 'warn',
-    'no-var': 'error'
+    'no-var': 'error',
   },
   env: {
-    'vue/setup-compiler-macros': true
-  }
+    'vue/setup-compiler-macros': true,
+  },
 }
-

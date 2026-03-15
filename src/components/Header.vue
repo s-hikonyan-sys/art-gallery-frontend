@@ -16,14 +16,14 @@
 
 <script>
 export default {
-  name: 'Header'
+  name: 'AppHeader',
 }
 </script>
 
 <style scoped>
 .header {
   background: #fff;
-  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
   padding: 1rem 0;
 }
 
@@ -65,7 +65,7 @@ export default {
     flex-direction: column;
     gap: 1rem;
   }
-  
+
   .nav {
     flex-wrap: wrap;
     justify-content: center;
@@ -73,5 +73,3 @@ export default {
   }
 }
 </style>
-
-

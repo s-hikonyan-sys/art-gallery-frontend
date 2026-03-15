@@ -4,8 +4,7 @@
       <h1>アーティストについて</h1>
       <div class="content">
         <p>
-          こんにちは。油絵を描いています。
-          心を込めて描いた作品を皆様にお届けしたいと思っています。
+          こんにちは。油絵を描いています。 心を込めて描いた作品を皆様にお届けしたいと思っています。
         </p>
         <p>
           風景、静物、人物など、様々なテーマで作品を制作しています。
@@ -18,7 +17,7 @@
 
 <script>
 export default {
-  name: 'About'
+  name: 'About',
 }
 </script>
 
@@ -48,5 +47,3 @@ export default {
   margin-bottom: 1.5rem;
 }
 </style>
-
-

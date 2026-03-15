@@ -9,9 +9,9 @@ export default defineConfig({
     proxy: {
       '/api': {
         target: 'http://art-gallery-dev-api:8080',
-        changeOrigin: true
-      }
-    }
+        changeOrigin: true,
+      },
+    },
   },
   test: {
     globals: true,
@@ -20,12 +20,7 @@ export default defineConfig({
     coverage: {
       provider: 'v8',
       reporter: ['text', 'json', 'html'],
-      exclude: [
-        'node_modules/',
-        'tests/',
-        '**/*.config.js',
-        '**/mockData.js'
-      ]
-    }
-  }
+      exclude: ['node_modules/', 'tests/', '**/*.config.js', '**/mockData.js'],
+    },
+  },
 })

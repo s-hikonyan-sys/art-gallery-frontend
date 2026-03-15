@@ -3,59 +3,51 @@
     <div class="container" v-if="artwork">
       <div class="detail-content">
         <div class="artwork-image-large">
-          <img :src="artwork.image_url || '/placeholder.jpg'" :alt="artwork.title">
+          <img :src="artwork.image_url || '/placeholder.jpg'" :alt="artwork.title" />
         </div>
         <div class="artwork-details">
           <h1>{{ artwork.title }}</h1>
           <p class="description">{{ artwork.description }}</p>
           <div class="artwork-meta">
-            <div class="meta-item">
-              <strong>サイズ:</strong> {{ artwork.size }}
-            </div>
-            <div class="meta-item">
-              <strong>画材:</strong> {{ artwork.medium }}
-            </div>
-            <div class="meta-item">
-              <strong>制作年:</strong> {{ artwork.year }}年
-            </div>
+            <div class="meta-item"><strong>サイズ:</strong> {{ artwork.size }}</div>
+            <div class="meta-item"><strong>画材:</strong> {{ artwork.medium }}</div>
+            <div class="meta-item"><strong>制作年:</strong> {{ artwork.year }}年</div>
           </div>
           <div class="price-section">
             <p class="price">¥{{ formatPrice(artwork.price) }}</p>
             <span v-if="artwork.is_sold" class="sold-label">SOLD</span>
             <span v-else class="available-label">販売中</span>
           </div>
-          <button 
-            v-if="!artwork.is_sold" 
-            @click="showContactForm = true"
-            class="contact-button"
-          >
+          <button v-if="!artwork.is_sold" @click="showContactForm = true" class="contact-button">
             お問い合わせ
           </button>
         </div>
       </div>
-      
+
       <div v-if="showContactForm" class="contact-form-overlay" @click="showContactForm = false">
         <div class="contact-form" @click.stop>
           <h2>お問い合わせ</h2>
           <form @submit.prevent="submitOrder">
             <div class="form-group">
               <label>お名前 *</label>
-              <input v-model="orderForm.name" type="text" required>
+              <input v-model="orderForm.name" type="text" required />
             </div>
             <div class="form-group">
               <label>メールアドレス *</label>
-              <input v-model="orderForm.email" type="email" required>
+              <input v-model="orderForm.email" type="email" required />
             </div>
             <div class="form-group">
               <label>電話番号</label>
-              <input v-model="orderForm.phone" type="tel">
+              <input v-model="orderForm.phone" type="tel" />
             </div>
             <div class="form-group">
               <label>メッセージ</label>
               <textarea v-model="orderForm.message" rows="4"></textarea>
             </div>
             <div class="form-actions">
-              <button type="button" @click="showContactForm = false" class="cancel-btn">キャンセル</button>
+              <button type="button" @click="showContactForm = false" class="cancel-btn">
+                キャンセル
+              </button>
               <button type="submit" class="submit-btn">送信</button>
             </div>
           </form>
@@ -79,8 +71,8 @@ export default {
         name: '',
         email: '',
         phone: '',
-        message: ''
-      }
+        message: '',
+      },
     }
   },
   mounted() {
@@ -101,7 +93,7 @@ export default {
       try {
         await axios.post('/api/orders', {
           ...this.orderForm,
-          artwork_id: this.artwork.id
+          artwork_id: this.artwork.id,
         })
         alert('お問い合わせを送信しました。ありがとうございます。')
         this.showContactForm = false
@@ -113,8 +105,8 @@ export default {
     },
     formatPrice(price) {
       return new Intl.NumberFormat('ja-JP').format(price)
-    }
-  }
+    },
+  },
 }
 </script>
 
@@ -302,5 +294,3 @@ export default {
   }
 }
 </style>
-
-

@@ -2,40 +2,36 @@
   <div class="gallery">
     <div class="container">
       <h1>作品一覧</h1>
-      
+
       <div class="filters">
-        <button 
-          @click="filter = null" 
-          :class="{ active: filter === null }"
-          class="filter-btn"
-        >
+        <button @click="filter = null" :class="{ active: filter === null }" class="filter-btn">
           すべて
         </button>
-        <button 
-          @click="filter = 'featured'" 
+        <button
+          @click="filter = 'featured'"
           :class="{ active: filter === 'featured' }"
           class="filter-btn"
         >
           おすすめ
         </button>
-        <button 
-          @click="filter = 'available'" 
+        <button
+          @click="filter = 'available'"
           :class="{ active: filter === 'available' }"
           class="filter-btn"
         >
           販売中
         </button>
       </div>
-      
+
       <div class="artwork-grid" v-if="artworks.length > 0">
-        <div 
-          v-for="artwork in filteredArtworks" 
+        <div
+          v-for="artwork in filteredArtworks"
           :key="artwork.id"
           class="artwork-card"
           @click="goToDetail(artwork.id)"
         >
           <div class="artwork-image">
-            <img :src="artwork.image_url || '/placeholder.jpg'" :alt="artwork.title">
+            <img :src="artwork.image_url || '/placeholder.jpg'" :alt="artwork.title" />
             <span v-if="artwork.is_sold" class="sold-badge">SOLD</span>
           </div>
           <div class="artwork-info">
@@ -63,7 +59,7 @@ export default {
   data() {
     return {
       artworks: [],
-      filter: null
+      filter: null,
     }
   },
   computed: {
@@ -74,7 +70,7 @@ export default {
         return this.artworks.filter(a => !a.is_sold)
       }
       return this.artworks
-    }
+    },
   },
   mounted() {
     this.fetchArtworks()
@@ -93,8 +89,8 @@ export default {
     },
     goToDetail(id) {
       this.$router.push(`/artwork/${id}`)
-    }
-  }
+    },
+  },
 }
 </script>
 
@@ -148,7 +144,7 @@ export default {
   background: white;
   border-radius: 8px;
   overflow: hidden;
-  box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
   cursor: pointer;
   transition: transform 0.3s;
 }
@@ -225,5 +221,3 @@ export default {
   }
 }
 </style>
-
-

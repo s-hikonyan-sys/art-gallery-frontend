@@ -5,15 +5,15 @@
       <form @submit.prevent="submitContact" class="contact-form">
         <div class="form-group">
           <label>お名前 *</label>
-          <input v-model="form.name" type="text" required>
+          <input v-model="form.name" type="text" required />
         </div>
         <div class="form-group">
           <label>メールアドレス *</label>
-          <input v-model="form.email" type="email" required>
+          <input v-model="form.email" type="email" required />
         </div>
         <div class="form-group">
           <label>電話番号</label>
-          <input v-model="form.phone" type="tel">
+          <input v-model="form.phone" type="tel" />
         </div>
         <div class="form-group">
           <label>メッセージ *</label>
@@ -34,8 +34,8 @@ export default {
         name: '',
         email: '',
         phone: '',
-        message: ''
-      }
+        message: '',
+      },
     }
   },
   methods: {
@@ -43,8 +43,8 @@ export default {
       // ここでお問い合わせフォームの送信処理を実装
       alert('お問い合わせありがとうございます。後日ご連絡いたします。')
       this.form = { name: '', email: '', phone: '', message: '' }
-    }
-  }
+    },
+  },
 }
 </script>
 
@@ -69,7 +69,7 @@ export default {
   background: white;
   padding: 2rem;
   border-radius: 8px;
-  box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 
 .form-group {
@@ -109,5 +109,3 @@ export default {
   background: #5568d3;
 }
 </style>
-
-

@@ -13,16 +13,14 @@ const routes = [
   { path: '/gallery', component: Gallery },
   { path: '/artwork/:id', component: ArtworkDetail },
   { path: '/about', component: About },
-  { path: '/contact', component: Contact }
+  { path: '/contact', component: Contact },
 ]
 
 const router = createRouter({
   history: createWebHistory(),
-  routes
+  routes,
 })
 
 const app = createApp(App)
 app.use(router)
 app.mount('#app')
-
-

@@ -8,7 +8,7 @@
 
 <script>
 export default {
-  name: 'Footer'
+  name: 'AppFooter',
 }
 </script>
 
@@ -27,5 +27,3 @@ export default {
   text-align: center;
 }
 </style>
-
-

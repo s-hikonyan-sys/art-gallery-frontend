@@ -7,19 +7,19 @@
         <router-link to="/gallery" class="cta-button">作品を見る</router-link>
       </div>
     </section>
-    
+
     <section class="featured-artworks">
       <div class="container">
         <h2>おすすめ作品</h2>
         <div class="artwork-grid" v-if="featuredArtworks.length > 0">
-          <div 
-            v-for="artwork in featuredArtworks" 
+          <div
+            v-for="artwork in featuredArtworks"
             :key="artwork.id"
             class="artwork-card"
             @click="goToDetail(artwork.id)"
           >
             <div class="artwork-image">
-              <img :src="artwork.image_url || '/placeholder.jpg'" :alt="artwork.title">
+              <img :src="artwork.image_url || '/placeholder.jpg'" :alt="artwork.title" />
             </div>
             <div class="artwork-info">
               <h3>{{ artwork.title }}</h3>
@@ -40,7 +40,7 @@ export default {
   name: 'Home',
   data() {
     return {
-      featuredArtworks: []
+      featuredArtworks: [],
     }
   },
   mounted() {
@@ -60,8 +60,8 @@ export default {
     },
     goToDetail(id) {
       this.$router.push(`/artwork/${id}`)
-    }
-  }
+    },
+  },
 }
 </script>
 
@@ -127,7 +127,7 @@ export default {
   background: white;
   border-radius: 8px;
   overflow: hidden;
-  box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
   cursor: pointer;
   transition: transform 0.3s;
 }
@@ -172,11 +172,9 @@ export default {
   .hero-content h1 {
     font-size: 2rem;
   }
-  
+
   .artwork-grid {
     grid-template-columns: 1fr;
   }
 }
 </style>
-
-
